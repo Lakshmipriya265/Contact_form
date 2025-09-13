@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <title>Contact_us_form</title>
+</head>
+<body style="font-family: Arial; margin:50px; text-align:center;">
+    <h1 style="color: darkblue;">Contact us</h1>
+    <form action = "/contact" method = "POST"
+        onsubmit="return validateForm()"
+        style="border:1px solid gray; padding:20px; width:350px; margin:auto; border-radius:8px;">
+        <label style="display:block; margin:10px 0;">Name: 
+            <input type="text" name = "name" id="name" style="width:100%; padding:6px;">
+        </label>
+        <label style="display:block; margin:10px 0;"> Email: 
+            <input type="text" email="email" id="email" style="width:100%; padding:6px;">
+        </label>
+        <label style="display:block; margin:10px 0;"> Message: 
+            <input type="text" name="message" id="message" style="width:100%; padding:6px;">
+        </label>
+        <button type="submit" style="background:green; color:white; padding:8px 15px; border:none; border-radius:5px; margin-top:10px;">
+            Confirm</button>
+    </form>
+    <script>
+        function validateForm() {
+            let name = document.getElementsById("name").value.trim();
+            let email = document.getElementsById("email").value.trim();
+            let message = document.getElementsById("message").value.trim();
+            if(name === "" || email === "" || message === ""){
+                alert("Please complete the required field!!");
+                return false;
+            }
+            if(!email.includes("@") || !email.includes(".")){
+                alert("Please enter the valid email address!!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
